@@ -13,11 +13,7 @@ export default ({ title }) => {
   
   <body>
     <div id="app">
-      <v-app>
-        <main>
-          <v-container>Hello world</v-container>
-        </main>
-      </v-app>
+      <chat-app />
     </div>
   </body>
   <script src="/static/scripts/bundle.min.js"></script>
