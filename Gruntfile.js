@@ -19,10 +19,9 @@ module.exports = function exports(grunt) {
           src: ['dist/', 'source/templates/']
         },
         options: {
-          server: {
-            baseDir: 'dist/'
-          },
-          open: false
+          open: false,
+          proxy: 'localhost:4000',
+          reloadDelay: 2000
         }
       }
     },
@@ -32,7 +31,7 @@ module.exports = function exports(grunt) {
     },
     concurrent: {
       dev: {
-        tasks: ['watch', 'browserSync'],
+        tasks: ['nodemon', 'watch', 'browserSync'],
         options: {
           logConcurrentOutput: true
         }
@@ -88,6 +87,17 @@ module.exports = function exports(grunt) {
         }]
       }
     },
+    nodemon: {
+      dev: {
+        script: 'server/index.js',
+        options: {
+          exec: 'babel-node',
+          env: {
+            PORT: '4000'
+          }
+        }
+      }
+    },
     sass: {
       dist: {
         files: {
@@ -138,6 +148,7 @@ module.exports = function exports(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer')
   grunt.loadNpmTasks('grunt-browser-sync')
   grunt.loadNpmTasks('grunt-concurrent')
+  grunt.loadNpmTasks('grunt-nodemon')
   grunt.loadNpmTasks('grunt-webpack')
 
   // Default task
