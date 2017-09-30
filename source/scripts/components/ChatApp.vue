@@ -1,25 +1,16 @@
 <template>
-  <v-app>
-    <main>
-      <v-container>
-        <chatContainer :messages="messages" />
-        <form v-on:submit.prevent="onSubmit()">
-          <input type="text" v-model="message" placeholder="Send a message..." />
-          <input type="Submit" value="-->" />
-        </form>
-      </v-container>
-    </main>
-  </v-app>
+  <div>
+    <chatContainer :messages="messages" />
+    <v-input @submit-message="onSubmit" />
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['messages'],
-  data: function() { return { message: '' } },
+  data: function() { return { messages: ['hi'] } },
   methods: {
-    onSubmit: function() {
-      this.$emit('submit-message', this.message)
-      this.message = ''
+    onSubmit: function(msg) {
+      this.messages.push(msg)
     }
   }
 }
