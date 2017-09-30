@@ -1,0 +1,17 @@
+extends: standard
+plugins:
+  - import
+  - html
+env:
+  browser: true
+  es6: true
+  jest: true
+  node: true
+rules: 
+  max-len: [1, 80, 2]
+  no-console: ["warn"]
+  no-alert: ["warn"]
+  space-before-function-paren: ["off"]
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: "module"
