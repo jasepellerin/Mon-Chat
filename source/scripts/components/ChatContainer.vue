@@ -1,7 +1,7 @@
 <template>
-  <div class="chat-container">
-    <chat-message :key="message" v-for="message in messages" :message="message" />
-  </div>
+  <v-layout column align-baseline justify-end>
+    <chat-message class="mt-1" :key="message" v-for="message in messages" :message="message" />
+  </v-layout>
 </template>
 
 <script>

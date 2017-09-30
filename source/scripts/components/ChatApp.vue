@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-layout column justify-space-between>
     <chatContainer :messages="messages" />
     <v-input @submit-message="onSubmit" />
-  </div>
+  </v-layout>
 </template>
 
 <script>
