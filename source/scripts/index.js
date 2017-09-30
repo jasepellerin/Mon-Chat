@@ -1,21 +1,25 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 const ChatApp = require('./components/ChatApp.vue')
+const ChatContainer = require('./components/ChatContainer.vue')
+const ChatMessage = require('./components/ChatMessage.vue')
 
 Vue.component('chatApp', ChatApp)
+Vue.component('chatContainer', ChatContainer)
+Vue.component('chatMessage', ChatMessage)
 
 Vue.use(Vuetify)
-const app = new Vue({ // eslint-disable-line no-unused-vars
+const app = new Vue({
   el: '#app',
   data: {
     username: '',
-    message: '',
-    messages: []
+    messages: ['hi']
   },
   methods: {
-    onSubmit: function (msg) {
+    submitMessage: function (msg) {
       this.messages.push(msg)
-      this.message = ''
     }
   }
 })
+
+export default app

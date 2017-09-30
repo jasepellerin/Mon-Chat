@@ -13,7 +13,7 @@ export default ({ title }) => {
   
   <body>
     <div id="app">
-      <chat-app />
+      <chat-app :messages="messages" @submit-message="submitMessage"/>
     </div>
   </body>
   <script src="/static/scripts/bundle.min.js"></script>
