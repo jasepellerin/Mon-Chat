@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  data: function() { return { messages: ['hi'] } },
+  data: function() { return { messages: [] } },
   methods: {
     onSubmit: function(msg) {
       this.messages.push(msg)
