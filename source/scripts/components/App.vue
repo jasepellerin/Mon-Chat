@@ -7,7 +7,7 @@
     </v-toolbar>
     <main>
       <v-container fluid>
-        <router-view :username="username"></router-view>
+        <router-view></router-view>
       </v-container>
     </main>
     <v-footer fixed>

@@ -14,8 +14,8 @@ export default {
       if (e) {
         e.target.blur()
       }
-      // Pass message to parent component
-      this.$emit('submit-message', this.message)
+      // Call store mutator
+      this.$store.commit('changeUsername', this.message)
       // Remove message
       this.message = ''
     }
