@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     onSubmit: function(msg) {
+      // Add message to array
       this.messages.push(
         {
           user: this.$store.state.username,

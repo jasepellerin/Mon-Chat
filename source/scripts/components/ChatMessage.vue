@@ -13,6 +13,7 @@ export default {
   data: function() {
     return {
       self: function() {
+        // If current user posted a message, return true to align right
         if (this.message.user === this.$store.state.username) {
           return true
         } else return false
