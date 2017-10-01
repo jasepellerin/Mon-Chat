@@ -11,6 +11,7 @@ export default {
     onSubmit: function(msg) {
       // Update store username
       this.$store.commit('changeUsername', msg)
+      this.$router.replace({ name: 'chat', params: { chatID: 10 } })
     }
   }
 }
