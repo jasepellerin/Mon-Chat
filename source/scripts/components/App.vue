@@ -7,7 +7,7 @@
     </v-toolbar>
     <main>
       <v-container fluid>
-        <router-view></router-view>
+        <router-view :username="username"></router-view>
       </v-container>
     </main>
     <v-footer fixed>
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  props: ['username'],
   data: function() {
     return { dark: false }
   }
