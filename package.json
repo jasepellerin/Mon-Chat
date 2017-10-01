@@ -1,7 +1,7 @@
 {
   "name": "mon-chat",
   "version": "0.0.1",
-  "description": "Small chat web application",
+  "description": "Small web chat application",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -10,6 +10,17 @@
   "scripts": {
     "start": "grunt start",
     "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.vue$": "<rootDir>/test/jest-vue.js",
+      ".*": "babel-jest"
+    }
   },
   "keywords": [
     "chat"
