@@ -21,8 +21,23 @@ Vue.component('login', Login)
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 
-const routes = [{ path: '/', component: Login },
-{ path: '/chat/:chatID', name: 'chat', component: ChatApp, props: true }]
+const routes = [
+  {
+    path: '/',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/chat/:chatID',
+    name: 'chat',
+    component: ChatApp,
+    props: true,
+    beforeEnter: (to, from, next) => {
+      if (!store.state.username || store.state.username.length > 20) {
+        router.replace({ name: 'login' })
+      } else next()
+    }
+  }]
 const router = new VueRouter({ routes })
 
 const app = new Vue({
