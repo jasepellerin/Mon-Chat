@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  props: ['submit-message', 'label', 'rules', 'icon'],
+  props: ['submit-message', 'label', 'rules', 'icon', 'done'],
   data: function() { return { message: '' } },
   methods: {
     onSubmit: function(e) {
@@ -16,8 +16,10 @@ export default {
       }
       // Pass message to parent component
       this.$emit('submit-message', this.message)
-      // Remove message
-      this.message = ''
+      if (this.done) {
+        // Remove message if it was handled successfully
+        this.message = ''
+      }
     }
   }
 }
