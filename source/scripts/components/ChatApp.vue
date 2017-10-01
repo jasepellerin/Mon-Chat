@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import postMessage from '../functions/postMessage'
+import getMessages from '../functions/getMessages'
 export default {
   props: ['chatID'],
   data: function() {
@@ -22,22 +24,21 @@ export default {
         time: new Date().toLocaleTimeString(),
         text: msg
       }
-      // Add message to local messages
-      this.messages.push(message)
-      // Patch message array
-      fetch('/chat/' + this.chatID, {
-        method: 'PATCH',
-        headers: {
-          'Accept': 'application/json, text/plain, */*',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ messages: this.messages })
-      }).then(res => res.json()).then(res => {
-        if (res && res.messages) {
-          this.messages = res.messages
-        }
-      })
+      // Post message
+      postMessage(this.chatID, message)
+      // Get messages
+      this.updateMessages()
+    },
+    updateMessages: function() {
+      // Get messages
+      getMessages(this.chatID)
+        // Update local messages
+        .then(messages => { this.messages = messages })
     }
+  },
+  created() {
+    // Initialize messages when created
+    this.updateMessages()
   }
 }
 </script>

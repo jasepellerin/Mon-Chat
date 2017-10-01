@@ -28,28 +28,24 @@ app.post('/chat/:chatID', (req, res) => {
   res.json(chat)
 })
 
-// Used to update messages in a given chatroom
-app.patch('/chat/:chatID', (req, res) => {
-  const chat = {
-    _id: req.params.chatID,
-    messages: req.body.messages
-  }
+// Used to add messages to a given chatroom
+app.post('/chat/:chatID/messages', (req, res) => {
+  const chatID = req.params.chatID
+  const query = { _id: parseInt(chatID) }
+  const message = req.body.message
+
   // Add document to database
-  dbController.updateDocument(chatCollection, chat)
-  res.json(chat)
+  dbController.addElementToArray(chatCollection, query, 'messages', message)
 })
 
-// Used to get chat messages
+// Used to get chat room messages
 app.get('/chat/:chatID', (req, res) => {
-  const chatID = req.params.chatID
-  let messages
-  try {
-    messages = dbController
-      .getMatchingDocumentsInCollection(chatCollection, { _id: chatID })
-    res.json(messages)
-  } catch (error) {
-    // Chat room doesn't exist
-  }
+  const chatID = parseInt(req.params.chatID)
+  dbController.getMatchingDocumentsInCollection(chatCollection, { _id: chatID })
+    .then(chat => {
+      // Return first match
+      res.json(chat[0])
+    })
 })
 
 // Send 404 for any other routes
