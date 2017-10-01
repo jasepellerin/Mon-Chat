@@ -1,5 +1,5 @@
 <template>
-  <v-card class="cyan darken-2 white--text mt-1" :class="self ? 'align-self-end' : 'align-self-start'">
+  <v-card class="darken-2 white--text mt-1" :class="self()">
     <v-card-title primary-title>
       <div>{{ message.user }}</div>
       <div>{{ message.text }}</div>
@@ -10,16 +10,16 @@
 
 <script>
 export default {
+  props: ['message'],
   data: function() {
     return {
       self: function() {
-        // If current user posted a message, return true to align right
+        // If current user posted a message, align end
         if (this.message.user === this.$store.state.username) {
-          return true
-        } else return false
+          return 'self-message purple'
+        } else return 'other-message cyan'
       }
     }
-  },
-  props: ['message']
+  }
 }
 </script>
