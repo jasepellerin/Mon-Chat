@@ -43,6 +43,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
     "css-loader": "^0.28.4",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
@@ -66,6 +67,7 @@
     "grunt-nodemon": "^0.4.2",
     "grunt-webpack": "^3.0.0",
     "jest": "^21.1.0",
+    "mongodb": "^2.2.31",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1"
