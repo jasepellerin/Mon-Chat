@@ -24,6 +24,16 @@ class DBController {
     })
   }
 
+  // Add an element to an array within a document
+  addElementToArray(collection, query, array, element) {
+    let arraySearch = {}
+    arraySearch[array] = element
+    this.connectAndPerformFunction((db) => {
+      db.collection(collection)
+        .updateOne(query, { $push: arraySearch })
+    })
+  }
+
   // Update given document in collection
   updateDocument(collection, document) {
     this.connectAndPerformFunction((db) => {
