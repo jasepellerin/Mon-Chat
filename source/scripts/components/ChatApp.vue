@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     onSubmit: function(msg) {
-      this.messages.push(msg)
+      this.messages.push({ user: this.$store.state.username, time: new Date().toLocaleTimeString(), text: msg })
     }
   }
 }
