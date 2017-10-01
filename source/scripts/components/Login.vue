@@ -1,6 +1,6 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-input @submit-message="onSubmit" label="Enter Username" :done="done" :rules=[rules.length] icon="play_arrow" />
+    <v-input @submit-message="onSubmit" label="Enter Username" :done="done" :rules="[rules.length, rules.required]" icon="play_arrow" />
   </v-layout>
 </template>
 
@@ -11,9 +11,14 @@ export default {
     return {
       done: false,
       rules: {
-        length: (name) => {
-          if (name.length >= 20) {
-            return 'Username should be 20 characters or less'
+        length: (value) => {
+          // Check that username is 20 characters or less
+          return value.length <= 20 ||
+            'Username should be 20 characters or less'
+        },
+        required: (value) => {
+          if (!value) {
+            return 'Username is required'
           } else return true
         }
       }
