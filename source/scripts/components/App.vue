@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  props: ['username'],
   data: function() {
     return { dark: false }
   }
