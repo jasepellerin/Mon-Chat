@@ -21,7 +21,8 @@ Vue.component('login', Login)
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 
-const routes = [{ path: '/', component: Login }]
+const routes = [{ path: '/', component: Login },
+{ path: '/chat/:chatID', component: ChatApp, props: true }]
 const router = new VueRouter({ routes })
 
 const app = new Vue({
