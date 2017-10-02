@@ -21,7 +21,7 @@ export default {
       // Add message to array
       const message = {
         user: this.$store.state.username,
-        time: new Date().toLocaleTimeString(),
+        time: Date.now(),
         text: msg
       }
       // Post message

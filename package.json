@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jasepellerin/Mon-Chat#readme",
   "dependencies": {
+    "time-ago": "^0.1.0",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "vuetify": "^0.15.7",

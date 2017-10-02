@@ -4,13 +4,17 @@
       <div>{{ message.user }}</div>
       <div>{{ message.text }}</div>
     </v-card-title>
-    <div class="message-time">{{ message.time }}</div>
+    <div class="message-time">{{ friendlyTime }}</div>
   </v-card>
 </template>
 
 <script>
+var ta = require('../../../node_modules/time-ago/timeago.js')()
 export default {
   props: ['message'],
+  computed: {
+    friendlyTime: function() { return ta.ago(this.message.time) }
+  },
   data: function() {
     return {
       self: function() {
