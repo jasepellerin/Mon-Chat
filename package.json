@@ -11,6 +11,8 @@
     "start": "node server/index.js",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
+    "buildProd": "grunt buildProd",
+    "buildDev": "grunt buildDev",
     "dev": "grunt start",
     "test": "jest"
   },
