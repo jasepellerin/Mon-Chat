@@ -1,12 +1,13 @@
 const express = require('express')
 const template = require('../source/templates')
 const api = require('./api')
+const path = require('path')
 
 // Constants
 const app = express()
 
 // Serve static files
-app.use('/static', express.static('dist'))
+app.use('/static', express.static(path.join(__dirname, '../dist/')))
 
 // Index
 app.get('/', (req, res) => {
