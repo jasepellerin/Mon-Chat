@@ -6,6 +6,7 @@
 
 
 <script>
+import testChatID from '../functions/testChatID'
 export default {
   data: function() {
     return {
@@ -16,9 +17,7 @@ export default {
             'Please enter a chat ID'
         },
         chatID: (value) => {
-          const chatReg = new RegExp('^[0-9]{5,16}$')
-          const test = value.match(chatReg)
-          return (test && test[0] === value) ||
+          return testChatID(value) ||
             'Chat ID should be between 5 and 16 numerical digits [0-9]'
         }
       }

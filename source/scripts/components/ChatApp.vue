@@ -19,6 +19,11 @@ export default {
       messages: []
     }
   },
+  watch: {
+    chatID: function() {
+      this.updateMessages()
+    }
+  },
   methods: {
     onSubmit: function(msg) {
       // Add message to array
@@ -41,6 +46,8 @@ export default {
           // If chat room does not exist, try creating it
           if (err.statusText === 'Chat room not found') {
             makeRoom(this.chatID)
+            // Clear local messages
+            this.messages = []
           }
         })
     }
