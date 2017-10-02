@@ -4,4 +4,3 @@
 /.sass-cache/
 .brackets.json
 server/secrets.json
-ecosystem.config.js
