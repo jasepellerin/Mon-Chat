@@ -4,3 +4,8 @@
 /.sass-cache/
 .brackets.json
 server/secrets.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
