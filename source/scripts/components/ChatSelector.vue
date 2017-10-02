@@ -1,6 +1,6 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-input @submit-message="onSubmit" label="Enter Chat ID" :done="done" :rules="[rules.length, rules.required]" icon="play_arrow" />
+    <v-input @submit-message="onSubmit" label="Enter Chat ID" :done="done" :rules="[rules.required, rules.chatID]" icon="play_arrow" />
   </v-layout>
 </template>
 
@@ -11,15 +11,15 @@ export default {
     return {
       done: false,
       rules: {
-        length: (value) => {
-          // Check that username is 5 - 20 characters
-          return (value.length >= 5 && value.length <= 20) ||
-            'Chat ID should be 5-20 characters long'
-        },
         required: (value) => {
-          if (!value) {
-            return 'Please enter a chat ID'
-          } else return true
+          return (value !== undefined && value !== '') ||
+            'Please enter a chat ID'
+        },
+        chatID: (value) => {
+          const chatReg = new RegExp('^[0-9]{5,16}$')
+          const test = value.match(chatReg)
+          return (test && test[0] === value) ||
+            'Chat ID should be between 5 and 16 numerical digits [0-9]'
         }
       }
     }
@@ -27,7 +27,7 @@ export default {
   methods: {
     onSubmit: function(chatID) {
       // Check chatID length
-      if (this.rules.length(chatID) === true) {
+      if (this.rules.chatID(chatID) === true) {
         // Reroute if appropriate
         this.$router.replace({ name: 'chat', params: { chatID: chatID } })
         this.done = true
