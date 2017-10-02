@@ -1,4 +1,4 @@
-export default ({ title }) => {
+module.exports = ({ title }) => {
   return `<!DOCTYPE html>
   <html>
   

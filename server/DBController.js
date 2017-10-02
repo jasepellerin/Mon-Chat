@@ -68,4 +68,4 @@ class DBController {
   }
 }
 
-export default DBController
+module.exports = DBController

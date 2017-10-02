@@ -4,4 +4,4 @@ const testChatID = (chatID) => {
   return (test && test[0] === chatID)
 }
 
-export default testChatID
+module.exports = testChatID

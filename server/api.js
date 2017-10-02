@@ -1,7 +1,7 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import DBController from './DBController'
-import testChatID from '../source/scripts/functions/testChatID'
+const express = require('express')
+const bodyParser = require('body-parser')
+const DBController = require('./DBController')
+const testChatID = require('../source/scripts/functions/testChatID')
 
 // Constants
 const dbController = new DBController()
@@ -70,4 +70,4 @@ api.get('/chat/:chatID', (req, res) => {
   checkChatID(chatID, callback, res)
 })
 
-export default api
+module.exports = api

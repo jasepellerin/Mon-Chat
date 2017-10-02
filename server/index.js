@@ -1,6 +1,6 @@
-import express from 'express'
-import template from '../source/templates'
-import api from './api'
+const express = require('express')
+const template = require('../source/templates')
+const api = require('./api')
 
 // Constants
 const app = express()
