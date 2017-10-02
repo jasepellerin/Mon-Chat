@@ -1,13 +1,13 @@
 <template>
-  <div mb-5>
-    <v-card class="darken-2 white--text pa-2" :class="self()">
+  <v-flex mb-2 :class="containerClass()">
+    <v-card class="darken-2 white--text pa-2" :class="cardClass()">
       <v-card-title primary-title>
         <p class="body-2">{{ message.user }}:</p>
         <p class="body-1">{{ message.text }}</p>
       </v-card-title>
     </v-card>
     <p class="caption">{{ friendlyTime }}</p>
-  </div>
+  </v-flex>
 </template>
 
 <script>
@@ -29,11 +29,17 @@ export default {
   },
   data: function() {
     return {
-      self: function() {
+      containerClass: function() {
         // If current user posted a message, align end
         if (this.message.user === this.$store.state.username) {
-          return 'self-message blue'
-        } else return 'other-message cyan'
+          return 'self-message'
+        } else return 'other-message'
+      },
+      cardClass: function() {
+        // Get appropriate card class
+        if (this.message.user === this.$store.state.username) {
+          return 'blue'
+        } else return 'cyan'
       }
     }
   }
