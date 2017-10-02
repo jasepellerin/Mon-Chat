@@ -18,9 +18,8 @@ export default {
             'Username should be 20 characters or less'
         },
         required: (value) => {
-          if (!value) {
-            return 'Username is required'
-          } else return true
+          return (value !== undefined && value !== '') ||
+            'Username is required'
         }
       }
     }
