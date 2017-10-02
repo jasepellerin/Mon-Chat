@@ -32,6 +32,8 @@ export default {
         time: Date.now(),
         text: msg
       }
+      // Insert message locally
+      this.messages.push(message)
       // Post message
       postMessage(this.chatID, message)
       // Get messages
