@@ -30,7 +30,7 @@ export default {
       // Update store username
       if (this.rules.length(name) === true) {
         this.$store.commit('changeUsername', name)
-        this.$router.replace({ name: 'chat', params: { chatID: 10 } })
+        this.$router.replace({ name: 'chatSelect' })
         this.done = true
         // Set username cookie
         Cookies.set('username', name)
@@ -40,7 +40,7 @@ export default {
   created() {
     // Check if username is already available
     if (this.$store.state.username) {
-      this.$router.replace({ name: 'chat', params: { chatID: 10 } })
+      this.$router.replace({ name: 'chatSelect' })
     }
   }
 }

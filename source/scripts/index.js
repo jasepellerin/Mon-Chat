@@ -9,6 +9,7 @@ const App = require('./components/App.vue')
 const ChatApp = require('./components/ChatApp.vue')
 const ChatContainer = require('./components/ChatContainer.vue')
 const ChatMessage = require('./components/ChatMessage.vue')
+const ChatSelector = require('./components/ChatSelector.vue')
 const Login = require('./components/Login.vue')
 const VInput = require('./components/VInput.vue')
 
@@ -16,6 +17,7 @@ const VInput = require('./components/VInput.vue')
 Vue.component('app', App)
 Vue.component('chatContainer', ChatContainer)
 Vue.component('chatMessage', ChatMessage)
+Vue.component('chatSelector', ChatSelector)
 Vue.component('vInput', VInput)
 Vue.component('login', Login)
 
@@ -29,15 +31,24 @@ const routes = [
     component: Login
   },
   {
-    path: '/chat/:chatID',
-    name: 'chat',
-    component: ChatApp,
-    props: true,
+    path: '/chat/',
+    name: 'chatSelect',
+    component: ChatSelector,
     beforeEnter: (to, from, next) => {
+      // Check username validity
       if (!store.state.username || store.state.username.length > 20) {
+        // Reset username
+        store.commit('changeUsername', '')
+        // Reroute to login
         router.replace({ name: 'login' })
       } else next()
     }
+  },
+  {
+    path: '/chat/:chatID',
+    name: 'chat',
+    component: ChatApp,
+    props: true
   }]
 const router = new VueRouter({ routes })
 let interval
