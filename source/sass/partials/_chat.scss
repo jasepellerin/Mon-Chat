@@ -1,10 +1,13 @@
-.self-message {
+.message {
   max-width: 40%;
+  flex: unset;
+}
+
+.self-message {
   align-self: flex-end;
 }
 
 .other-message {
-  max-width: 40%;
   align-self: flex-start;
 }
 

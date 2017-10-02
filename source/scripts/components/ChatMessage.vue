@@ -1,10 +1,9 @@
 <template>
-  <v-flex mb-2 :class="containerClass()">
+  <v-flex class="message mb-1" :class="containerClass()">
     <v-card class="darken-2 white--text pa-2" :class="cardClass()">
-      <v-card-title primary-title>
-        <p class="body-2">{{ message.user }}:</p>
-        <p class="body-1">{{ message.text }}</p>
-      </v-card-title>
+      <p class="body-2 mb-0">{{ message.user }}</p>
+      <v-divider></v-divider>
+      <p class="body-1 pa-2 mb-0">{{ message.text }}</p>
     </v-card>
     <p class="caption">{{ friendlyTime }}</p>
   </v-flex>
