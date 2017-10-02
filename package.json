@@ -8,7 +8,8 @@
     "url": "git+https://github.com/jasepellerin/Mon-Chat.git"
   },
   "scripts": {
-    "start": "grunt start",
+    "start": "node server/index.js",
+    "dev": "grunt start",
     "test": "jest"
   },
   "jest": {
