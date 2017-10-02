@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    username: ''
+    username: '',
+    time: 1
   },
   mutations: {
     changeUsername(state, newUsername) {
       state.username = newUsername
+    },
+    changeTime(state, newTime) {
+      state.time = newTime
     }
   }
 })

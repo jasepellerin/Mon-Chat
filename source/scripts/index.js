@@ -39,11 +39,21 @@ const routes = [
     }
   }]
 const router = new VueRouter({ routes })
+let interval
 
 const app = new Vue({
   router,
   store,
-  el: '#app'
+  el: '#app',
+  created() {
+    // Update store time every 5 seconds
+    interval = setInterval(() => {
+      store.commit('changeTime', Date.now())
+    }, 5000)
+  },
+  beforeDestroy() {
+    window.clearInterval(interval)
+  }
 })
 
 export default app
