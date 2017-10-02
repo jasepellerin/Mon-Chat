@@ -1,0 +1,17 @@
+.self-message {
+  max-width: 40%;
+  align-self: flex-end;
+}
+
+.other-message {
+  max-width: 40%;
+  align-self: flex-start
+}
+
+.chatSend {
+  position: fixed;
+  bottom: 3vh;
+  width: 88%;
+  left: 6%;
+  z-index: 2;
+}
