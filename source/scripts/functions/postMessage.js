@@ -1,5 +1,5 @@
 const postMessage = (chatID, message) => {
-  fetch('/chat/' + chatID + '/messages', {
+  fetch('/api/chat/' + chatID + '/messages', {
     method: 'POST',
     headers: {
       'Accept': 'application/json, text/plain, */*',
