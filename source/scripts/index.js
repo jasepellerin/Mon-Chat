@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import store from './store'
+import Cookies from 'js-cookie'
 
 // Import components
 const App = require('./components/App.vue')
@@ -46,6 +47,12 @@ const app = new Vue({
   store,
   el: '#app',
   created() {
+    // Check for cookie
+    const userCookie = Cookies.get('username')
+    // If cookie exists, set username
+    if (userCookie && userCookie.length <= 20) {
+      store.commit('changeUsername', userCookie)
+    }
     // Update store time every 5 seconds
     interval = setInterval(() => {
       store.commit('changeTime', Date.now())

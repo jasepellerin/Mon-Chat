@@ -6,6 +6,7 @@
 
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   data: function() {
     return {
@@ -31,7 +32,15 @@ export default {
         this.$store.commit('changeUsername', name)
         this.$router.replace({ name: 'chat', params: { chatID: 10 } })
         this.done = true
+        // Set username cookie
+        Cookies.set('username', name)
       }
+    }
+  },
+  created() {
+    // Check if username is already available
+    if (this.$store.state.username) {
+      this.$router.replace({ name: 'chat', params: { chatID: 10 } })
     }
   }
 }
