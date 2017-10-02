@@ -6,8 +6,11 @@
 </template>
 
 <script>
+// Helper functions
 import postMessage from '../functions/postMessage'
 import getMessages from '../functions/getMessages'
+import makeRoom from '../functions/makeRoom'
+
 export default {
   props: ['chatID'],
   data: function() {
@@ -34,6 +37,12 @@ export default {
       getMessages(this.chatID)
         // Update local messages
         .then(messages => { this.messages = messages })
+        .catch(err => {
+          // If chat room does not exist, try creating it
+          if (err.statusText === 'Chat room not found') {
+            makeRoom(this.chatID)
+          }
+        })
     }
   },
   created() {

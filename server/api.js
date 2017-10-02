@@ -13,7 +13,7 @@ api.use(bodyParser.json())
 // Used for creating chat rooms
 api.post('/chat/:chatID', (req, res) => {
   const chat = {
-    _id: req.params.chatID,
+    _id: parseInt(req.params.chatID),
     creationDate: Date.now(),
     messages: []
   }
@@ -36,8 +36,13 @@ api.get('/chat/:chatID', (req, res) => {
   const chatID = parseInt(req.params.chatID)
   dbController.getMatchingDocumentsInCollection(chatCollection, { _id: chatID })
     .then(chat => {
-      // Return first match
-      res.json(chat[0])
+      // Return first match if it exists
+      if (chat.length > 0) {
+        res.json(chat[0])
+      } else {
+        res.statusMessage = 'Chat room not found'
+        res.status(404).send('Chat room not found')
+      }
     })
 })
 
