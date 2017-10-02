@@ -1,5 +1,5 @@
 <template>
-  <v-card class="darken-2 white--text mb-3 pa-1" :class="self()">
+  <v-card class="darken-2 white--text mb-3 pa-2" :class="self()">
     <v-card-title primary-title>
       <div>{{ message.user }}</div>
       <div>{{ message.text }}</div>
