@@ -11,7 +11,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:jasepellerin/Mon-Chat.git',
       path: '/home/ubuntu/Mon-Chat',
-      'post-deploy': 'npm install && npm restart'
+      'post-deploy': 'npm install && npm run restart'
     }
   }
 }
