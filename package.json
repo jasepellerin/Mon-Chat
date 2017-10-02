@@ -9,6 +9,8 @@
   },
   "scripts": {
     "start": "node server/index.js",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production",
     "dev": "grunt start",
     "test": "jest"
   },
@@ -71,6 +73,7 @@
     "grunt-webpack": "^3.0.0",
     "jest": "^21.1.0",
     "mongodb": "^2.2.31",
+    "pm2": "^2.7.1",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1"
