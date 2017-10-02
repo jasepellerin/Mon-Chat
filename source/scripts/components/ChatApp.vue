@@ -1,7 +1,7 @@
 <template>
   <v-layout column justify-space-between>
     <chatContainer :messages="messages" />
-    <v-input @submit-message="onSubmit" :done="done" label="Send a message" icon="send" />
+    <v-input class="chatSend" @submit-message="onSubmit" :done="done" label="Send a message" icon="send" />
   </v-layout>
 </template>
 
@@ -39,6 +39,9 @@ export default {
   created() {
     // Initialize messages when created
     this.updateMessages()
+  },
+  updated() {
+    window.scrollTo(0, document.body.scrollHeight)
   }
 }
 </script>
