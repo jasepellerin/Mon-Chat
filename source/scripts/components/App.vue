@@ -3,15 +3,7 @@
     <!-- Closeable nav drawer -->
     <v-navigation-drawer persistent v-model="drawer" disable-route-watcher fixed>
       <v-list dense>
-        <!-- Theme toggle -->
-        <v-list-tile @click.stop="dark = !dark">
-          <v-list-tile-action>
-            <v-icon>lightbulb_outline</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            {{dark ? 'Light Mode' : 'Dark Mode'}}
-          </v-list-tile-content>
-        </v-list-tile>
+        <v-subheader class="mt-3 grey--text text--darken-1">Settings</v-subheader>
         <!-- Share chat button -->
         <v-list-tile @click.stop="share = !share" v-if="chatID">
           <v-list-tile-action>
@@ -19,6 +11,17 @@
           </v-list-tile-action>
           <v-list-tile-content>
             Share chat link
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-spacer> </v-spacer>
+        <v-divider></v-divider>
+        <!-- Theme toggle -->
+        <v-list-tile @click.stop="dark = !dark">
+          <v-list-tile-action>
+            <v-icon>lightbulb_outline</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            {{dark ? 'Light Mode' : 'Dark Mode'}}
           </v-list-tile-content>
         </v-list-tile>
         <!-- Change chat button -->
