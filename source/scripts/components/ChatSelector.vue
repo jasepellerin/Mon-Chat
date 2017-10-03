@@ -7,6 +7,8 @@
 
 <script>
 import testChatID from '../functions/testChatID'
+import makeRoom from '../functions/makeRoom'
+
 export default {
   data: function() {
     return {
@@ -27,6 +29,8 @@ export default {
     onSubmit: function(chatID) {
       // Check chatID length
       if (this.rules.chatID(chatID) === true) {
+        // Create chat room if needed
+        makeRoom(chatID)
         // Reroute if appropriate
         this.$router.replace({ name: 'chat', params: { chatID: chatID } })
         this.done = true
