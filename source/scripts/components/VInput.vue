@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field @keyup.enter="onSubmit" :rules="rules" name="new-message" :append-icon-cb="onSubmit" v-model="message" :label="label" single-line :append-icon="icon" />
+    <v-text-field @keyup.enter="onSubmit" :rules="rules" :append-icon-cb="onSubmit" v-model="message" :label="label" :append-icon="icon" />
   </div>
 </template>
 
