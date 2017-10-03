@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import store from './store'
 import Cookies from 'js-cookie'
+import logOut from './functions/logOut'
 
 // Import components
 const App = require('./components/App.vue')
@@ -38,7 +39,7 @@ const routes = [
       // Check username validity
       if (!store.state.username || store.state.username.length > 20) {
         // Reset username
-        store.commit('changeUsername', '')
+        logOut(store)
         // Reroute to login
         router.replace({ name: 'login' })
       } else next()

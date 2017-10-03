@@ -37,7 +37,7 @@ export default {
     }
   },
   created() {
-    // Check if username is already available
+    // If username is set, route to chatSelect
     if (this.$store.state.username) {
       this.$router.replace({ name: 'chatSelect' })
     }
