@@ -2,12 +2,15 @@ const express = require('express')
 const template = require('../source/templates')
 const api = require('./api')
 const path = require('path')
+const mongoAdapter = require('socket.io-adapter-mongo')
+const mongoUri = require('./secrets.json').mongoUri
 
 // Constants
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io').listen(server)
 
+io.adapter(mongoAdapter(mongoUri))
 io.on('connection', function (socket) {
   socket.on('Message', function (msg) {
     io.emit('Message', msg)

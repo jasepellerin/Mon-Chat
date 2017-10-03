@@ -8,6 +8,7 @@
 <script>
 // Helper functions
 import getMessages from '../functions/getMessages'
+import postMessage from '../functions/postMessage'
 import makeRoom from '../functions/makeRoom'
 
 // Socket
@@ -36,6 +37,7 @@ export default {
         text: msg
       }
       socket.emit('Message', message)
+      postMessage(this.chatID, message)
     },
     updateMessages: function() {
       // Get messages
@@ -55,6 +57,7 @@ export default {
   created() {
     // Initialize messages when created
     this.updateMessages()
+    // Start socket
     socket.on('Message', (msg) => {
       // Insert message locally
       this.messages.push(msg)
