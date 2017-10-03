@@ -1,46 +1,19 @@
 <template>
   <v-app id="chat" :dark="dark" toolbar footer>
-    <!-- Closeable nav drawer -->
+    <!-- Closeable drawer -->
     <v-navigation-drawer persistent v-model="drawer" disable-route-watcher fixed>
-      <v-list dense>
-        <v-subheader class="mt-3 grey--text text--darken-1">Settings</v-subheader>
-        <!-- Share chat button -->
-        <v-list-tile @click.stop="share = !share" v-if="chatID">
-          <v-list-tile-action>
-            <v-icon>link</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Share chat link
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-spacer> </v-spacer>
+      <v-subheader class="mt-3 grey--text text--darken-1">Settings</v-subheader>
         <v-divider></v-divider>
-        <!-- Theme toggle -->
-        <v-list-tile @click.stop="dark = !dark">
+      <v-list dense>
+        <!-- Create list items-->
+        <v-list-tile v-for="item in listItems" :key="item.title" @click.stop="item.click()"
+        v-if="item.show()">
           <v-list-tile-action>
-            <v-icon>lightbulb_outline</v-icon>
+            <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            {{dark ? 'Light Mode' : 'Dark Mode'}}
-          </v-list-tile-content>
-        </v-list-tile>
-        <!-- Change chat button -->
-        <v-list-tile @click.stop="chatSelect()" v-if="chatID">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Change Chatroom
-          </v-list-tile-content>
-        </v-list-tile>
-        <!-- Logout button -->
-        <v-list-tile @click.stop="logOut()" v-if="username">
-          <v-list-tile-action>
-            <v-icon>power_settings_new</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            Logout
-          </v-list-tile-content>
+            <v-list-tile-content>
+              {{item.title}}
+            </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -87,6 +60,32 @@ export default {
     return {
       dark: false,
       drawer: false,
+      listItems: [
+        {
+          click: () => { this.share = !this.share },
+          icon: 'link',
+          show: () => this.chatID !== undefined,
+          title: 'Share chat link'
+        },
+        {
+          click: () => { this.dark = !this.dark },
+          icon: 'lightbulb_outline',
+          show: () => true,
+          title: 'Dark Mode'
+        },
+        {
+          click: this.chatSelect,
+          icon: 'compare_arrows',
+          show: () => this.chatID,
+          title: 'Change Chatroom'
+        },
+        {
+          click: this.logOut,
+          icon: 'power_settings_new',
+          show: () => this.username,
+          title: 'Logout'
+        }
+      ],
       share: false
     }
   },
