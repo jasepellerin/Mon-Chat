@@ -162,8 +162,8 @@ module.exports = function exports(grunt) {
   grunt.registerTask('buildProd', ['clean:dist', 'sass', 'copy', 'webpack:prod',
     'autoprefixer', 'cssmin', 'uglify', 'clean:temp'])
 
-  // Production build
-  grunt.registerTask('buildDev', ['clean:dist', 'sass', 'copy', 'webpack:prod',
+  // Dev build
+  grunt.registerTask('buildDev', ['clean:dist', 'sass', 'copy', 'webpack:dev',
     'autoprefixer', 'cssmin', 'clean:temp'])
 
   // Wipe dist and then watch
