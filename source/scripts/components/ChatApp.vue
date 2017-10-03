@@ -7,11 +7,14 @@
 
 <script>
 // Helper functions
-import postMessage from '../functions/postMessage'
 import getMessages from '../functions/getMessages'
 import makeRoom from '../functions/makeRoom'
 
+// Socket
+const socket = require('socket.io-client')()
+
 export default {
+
   props: ['chatID'],
   data: function() {
     return {
@@ -32,12 +35,7 @@ export default {
         time: Date.now(),
         text: msg
       }
-      // Insert message locally
-      this.messages.push(message)
-      // Post message
-      postMessage(this.chatID, message)
-      // Get messages
-      this.updateMessages()
+      socket.emit('Message', message)
     },
     updateMessages: function() {
       // Get messages
@@ -57,6 +55,10 @@ export default {
   created() {
     // Initialize messages when created
     this.updateMessages()
+    socket.on('Message', (msg) => {
+      // Insert message locally
+      this.messages.push(msg)
+    })
   },
   updated() {
     window.scrollTo(0, document.body.scrollHeight)

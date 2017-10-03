@@ -5,6 +5,14 @@ const path = require('path')
 
 // Constants
 const app = express()
+const server = require('http').Server(app)
+const io = require('socket.io').listen(server)
+
+io.on('connection', function (socket) {
+  socket.on('Message', function (msg) {
+    io.emit('Message', msg)
+  })
+})
 
 // Serve static files
 app.use('/static', express.static(path.join(__dirname, '../dist/')))
@@ -22,4 +30,4 @@ app.get('*', (req, res) => {
   res.sendStatus(404)
 })
 
-app.listen(4000)
+server.listen(4000)
