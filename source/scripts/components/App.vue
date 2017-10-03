@@ -1,7 +1,7 @@
 <template>
   <v-app id="chat" :dark="dark" toolbar footer>
     <v-toolbar fixed>
-      <v-toolbar-title>Mon Chat</v-toolbar-title>
+      <v-toolbar-title>Mon Chat{{chatID ? ' - ' + chatID : ''}}</v-toolbar-title>
       <v-vtn @click="logOut()" flat v-if="username">Logout</v-vtn>
       <v-switch label="Dark mode" v-model="dark" />
     </v-toolbar>
@@ -27,6 +27,9 @@ export default {
     username: function() {
       this.checkUsername()
       return this.$store.state.username
+    },
+    chatID: function() {
+      return this.$route.params.chatID
     }
   },
   methods: {
