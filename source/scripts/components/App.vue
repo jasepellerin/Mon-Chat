@@ -15,7 +15,7 @@
         <!-- Change chat button -->
         <v-list-tile @click="chatSelect()" v-if="chatID">
           <v-list-tile-action>
-            <v-icon>home</v-icon>
+            <v-icon>compare_arrows</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             Change Chatroom
