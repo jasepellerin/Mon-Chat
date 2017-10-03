@@ -57,12 +57,12 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import logOut from '../functions/logOut'
 
 export default {
   data: function() {
     return {
-      dark: false,
       drawer: false,
       listItems: [
         {
@@ -72,7 +72,7 @@ export default {
           title: 'Share chat link'
         },
         {
-          click: () => { this.dark = !this.dark },
+          click: () => { this.$store.commit('toggleTheme') },
           icon: 'lightbulb_outline',
           show: () => true,
           title: 'Dark Mode'
@@ -94,15 +94,28 @@ export default {
     }
   },
   computed: {
+      // Set cookie when theme changes
+    dark: function() {
+      const darkTheme = this.$store.state.darkTheme
+      Cookies.set('darkTheme', darkTheme, {expires: 7})
+      return this.$store.state.darkTheme
+    },
     chatID: function() {
       return this.$route.params.chatID
     },
     url: function() {
       return window.location.href
     },
-    username: function() {
+      // Set cookie when username is updated
+    username: function () {
+      const newUsername = this.$store.state.username
+      // Route to login if username blank or undefined
       this.checkUsername()
-      return this.$store.state.username
+      // Check that username is not blank or too long, then set cookie
+      if (newUsername && newUsername.length < 20) {
+        Cookies.set('username', newUsername, {expires: 7})
+      }
+      return newUsername
     }
   },
   methods: {

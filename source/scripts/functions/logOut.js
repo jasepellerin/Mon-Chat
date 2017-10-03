@@ -1,8 +1,8 @@
 import Cookies from 'js-cookie'
 
 const logOut = (store) => {
-  store.commit('changeUsername', '')
-  Cookies.set('username', '')
+  store.commit('changeUsername', undefined)
+  Cookies.remove('username')
 }
 
 export default logOut
