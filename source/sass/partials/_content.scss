@@ -6,3 +6,7 @@
   display: flex;
   justify-content: center;
 }
+
+.navigation-drawer--persistent:not(.navigation-drawer--is-mobile).navigation-drawer--open:not(.navigation-drawer--right)~main .chatSend {
+  padding-left: 300px;
+}
