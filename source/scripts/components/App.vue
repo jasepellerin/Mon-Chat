@@ -3,21 +3,20 @@
     <!-- Closeable drawer -->
     <v-navigation-drawer persistent v-model="drawer" disable-route-watcher fixed>
       <v-subheader class="mt-3 grey--text text--darken-1">Settings</v-subheader>
-        <v-divider></v-divider>
+      <v-divider></v-divider>
       <v-list dense>
         <!-- Create list items-->
         <template v-for="item in listItems">
-        <v-list-tile @click.stop="item.click()"
-        v-if="item.show()">
-          <v-list-tile-action>
-            <v-icon>{{item.icon}}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            {{item.title}}
-          </v-list-tile-content>
-        </v-list-tile>
-        <!-- Add divider after dark mode button -->
-        <v-divider v-if="item.title === 'Dark Mode'"></v-divider>        
+          <v-list-tile :key="item.title" @click.stop="item.click()" v-if="item.show()">
+            <v-list-tile-action>
+              <v-icon>{{item.icon}}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              {{item.title}}
+            </v-list-tile-content>
+          </v-list-tile>
+          <!-- Add divider after dark mode button -->
+          <v-divider :key="item.title" v-if="item.title === 'Dark Mode'"></v-divider>
         </template>
       </v-list>
     </v-navigation-drawer>
@@ -94,10 +93,10 @@ export default {
     }
   },
   computed: {
-      // Set cookie when theme changes
+    // Set cookie when theme changes
     dark: function() {
       const darkTheme = this.$store.state.darkTheme
-      Cookies.set('darkTheme', darkTheme, {expires: 7})
+      Cookies.set('darkTheme', darkTheme, { expires: 7 })
       return this.$store.state.darkTheme
     },
     chatID: function() {
@@ -106,14 +105,14 @@ export default {
     url: function() {
       return window.location.href
     },
-      // Set cookie when username is updated
-    username: function () {
+    // Set cookie when username is updated
+    username: function() {
       const newUsername = this.$store.state.username
       // Route to login if username blank or undefined
       this.checkUsername()
       // Check that username is not blank or too long, then set cookie
       if (newUsername && newUsername.length < 20) {
-        Cookies.set('username', newUsername, {expires: 7})
+        Cookies.set('username', newUsername, { expires: 7 })
       }
       return newUsername
     }
