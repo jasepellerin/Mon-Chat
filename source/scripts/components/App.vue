@@ -6,15 +6,19 @@
         <v-divider></v-divider>
       <v-list dense>
         <!-- Create list items-->
-        <v-list-tile v-for="item in listItems" :key="item.title" @click.stop="item.click()"
+        <template v-for="item in listItems">
+        <v-list-tile @click.stop="item.click()"
         v-if="item.show()">
           <v-list-tile-action>
             <v-icon>{{item.icon}}</v-icon>
           </v-list-tile-action>
-            <v-list-tile-content>
-              {{item.title}}
-            </v-list-tile-content>
+          <v-list-tile-content>
+            {{item.title}}
+          </v-list-tile-content>
         </v-list-tile>
+        <!-- Add divider after dark mode button -->
+        <v-divider v-if="item.title === 'Dark Mode'"></v-divider>        
+        </template>
       </v-list>
     </v-navigation-drawer>
     <!-- Share dialog -->
