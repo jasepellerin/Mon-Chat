@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  props: ['submit-message', 'label', 'rules', 'icon', 'done'],
-  data: function() { return { message: '' } },
+  props: ['submit-message', 'label', 'rules', 'icon', 'done', 'initialMessage'],
+  data: function() { return { message: this.initialMessage || '' } },
   methods: {
     onSubmit: function(e) {
       // Remove focus from element

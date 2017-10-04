@@ -1,6 +1,6 @@
 <template>
   <v-layout column justify-center align-center>
-    <v-input @submit-message="onSubmit" label="Enter Chat ID" :done="done" :rules="[rules.required, rules.chatID]" icon="play_arrow" />
+    <v-input :initialMessage="initialId" @submit-message="onSubmit" label="Enter Chat ID" :done="done" :rules="[rules.required, rules.chatID]" icon="play_arrow" />
   </v-layout>
 </template>
 
@@ -12,6 +12,9 @@ import makeRoom from '../helperFunctions/makeRoom'
 export default {
   data: function() {
     return {
+      // Generate a random 16 digit initial ID
+      initialId: Math.floor(
+        (Math.random() * 9 + 1) * Math.pow(10, 15)).toString(),
       done: false,
       rules: {
         required: (value) => {
