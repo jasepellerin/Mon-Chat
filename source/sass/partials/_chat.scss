@@ -1,6 +1,10 @@
 .message {
+  min-width: 8%;
   max-width: 40%;
   flex: unset;
+  .caption {
+    text-align: right;
+  }
 }
 
 .self-message {
