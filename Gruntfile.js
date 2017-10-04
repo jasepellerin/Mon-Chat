@@ -48,23 +48,13 @@ module.exports = function exports(grunt) {
           }
         ]
       },
-      content: {
+      favicon: {
         files: [
           {
             expand: true,
-            cwd: 'source/static/content',
-            src: ['**'],
-            dest: 'dist/content'
-          }
-        ]
-      },
-      html: {
-        files: [
-          {
-            expand: true,
-            cwd: 'source/static/html',
-            src: ['**'],
-            dest: 'dist/html'
+            cwd: 'source/static/images',
+            src: ['favicon.ico'],
+            dest: 'dist/'
           }
         ]
       },
@@ -73,7 +63,7 @@ module.exports = function exports(grunt) {
           {
             expand: true,
             cwd: 'source/static/images',
-            src: ['**'],
+            src: ['**', '!favicon.ico'],
             dest: 'dist/images'
           }
         ]
@@ -127,9 +117,9 @@ module.exports = function exports(grunt) {
         tasks: ['sass', 'copy:css', 'autoprefixer',
           'cssmin', 'clean:temp']
       },
-      static: {
-        files: 'source/static/**/*',
-        tasks: ['copy']
+      images: {
+        files: 'source/images/**/*',
+        tasks: ['copy:images', 'copy:favicon']
       },
       scripts: {
         files: ['source/scripts/**/*'],
