@@ -6,7 +6,6 @@
 
 
 <script>
-import Cookies from 'js-cookie'
 export default {
   data: function() {
     return {
@@ -26,13 +25,11 @@ export default {
   },
   methods: {
     onSubmit: function(name) {
-      // Update store username
+      // Update store username if valid
       if (this.rules.length(name) === true) {
         this.$store.commit('changeUsername', name)
         this.$router.replace({ name: 'chatSelect' })
         this.done = true
-        // Set username cookie
-        Cookies.set('username', name)
       }
     }
   },
