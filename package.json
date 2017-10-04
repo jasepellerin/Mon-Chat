@@ -13,19 +13,7 @@
     "deploy": "pm2 deploy ecosystem.config.js production",
     "buildProd": "grunt buildProd",
     "buildDev": "grunt buildDev",
-    "dev": "grunt start",
-    "test": "jest"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.vue$": "<rootDir>/test/jest-vue.js",
-      ".*": "babel-jest"
-    }
+    "dev": "grunt start"
   },
   "keywords": [
     "chat"
@@ -74,7 +62,6 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-nodemon": "^0.4.2",
     "grunt-webpack": "^3.0.0",
-    "jest": "^21.1.0",
     "mongodb": "^2.2.31",
     "pm2": "^2.7.1",
     "socket.io": "^2.0.3",
