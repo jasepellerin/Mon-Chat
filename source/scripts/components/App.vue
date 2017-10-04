@@ -41,6 +41,8 @@
     <v-toolbar fixed>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Mon Chat{{chatID ? ' - ' + chatID : ''}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <img class="top-bar-icon" :src="icon" />
     </v-toolbar>
     <!-- Main content section -->
     <main>
@@ -95,6 +97,9 @@ export default {
   computed: {
     chatID: function() {
       return this.$route.params.chatID
+    },
+    icon: function() {
+      return this.dark ? 'static/images/cat-dark.png' : 'static/images/cat.png'
     },
     // Set cookie when theme changes
     dark: function() {
