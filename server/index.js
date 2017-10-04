@@ -22,11 +22,6 @@ app.get('/', (req, res) => {
   res.send(template({ title: 'Mon Chat' }))
 })
 
-// Favicon
-app.get('/favicon.ico', (req, res) => {
-  res.redirect('/static/favicon.ico')
-})
-
 // API
 app.use('/api', api)
 
