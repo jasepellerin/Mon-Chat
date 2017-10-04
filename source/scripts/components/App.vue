@@ -59,12 +59,12 @@
 
 <script>
 import Cookies from 'js-cookie'
-import logOut from '../helperFunctions/logOut'
 
 export default {
   data: function() {
     return {
       drawer: false,
+      // Nav drawer items
       listItems: [
         {
           click: () => { this.share = !this.share },
@@ -124,19 +124,22 @@ export default {
   },
   methods: {
     logOut: function() {
-      logOut(this.$store)
+      this.$store.commit('changeUsername', '')
     },
     chatSelect: function() {
       this.$router.replace({ name: 'chatSelect' })
     },
     checkUsername: function() {
       const username = this.$store.state.username
-      if (username === undefined || username === '') {
+      if (!username) {
         this.$router.replace({ name: 'login' })
       }
     }
   },
   created() {
+    this.checkUsername()
+  },
+  updated() {
     this.checkUsername()
   }
 }
