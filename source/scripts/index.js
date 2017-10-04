@@ -23,6 +23,9 @@ Vue.component('login', Login)
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 
+// Object assign polyfill
+require('es6-object-assign').polyfill()
+
 const routes = [
   {
     path: '/',
