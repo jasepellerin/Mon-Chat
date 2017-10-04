@@ -23,7 +23,7 @@ if (darkCookie === 'true') {
 }
 
 const store = new Vuex.Store({
-  state: Object.assign({}, initialState),
+  state: initialState,
   mutations: {
     changeUsername(state, newUsername) {
       state.username = newUsername
