@@ -32,8 +32,8 @@ export default {
     // Give message box focus
     focusInput: function() {
       const inputs = document.getElementsByTagName('input')
-      if (inputs.length === 0) {
-        document.getElementsByTagName('input')[0].focus()
+      if (inputs.length > 0) {
+        inputs[0].focus()
       }
     },
     onSubmit: function(msg) {
