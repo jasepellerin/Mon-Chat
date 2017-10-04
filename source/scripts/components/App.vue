@@ -118,6 +118,9 @@ export default {
       return this.$store.state.darkTheme
     },
     url: function() {
+      if (!this.chatID) {
+        return ''
+      }
       return window.location.href
     },
     // Set cookie when username is updated
