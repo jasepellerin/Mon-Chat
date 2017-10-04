@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
@@ -22,9 +23,6 @@ Vue.component('login', Login)
 
 Vue.use(VueRouter)
 Vue.use(Vuetify)
-
-// Object assign polyfill
-require('es6-object-assign').polyfill()
 
 const routes = [
   {
