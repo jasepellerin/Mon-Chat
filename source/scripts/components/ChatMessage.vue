@@ -17,7 +17,7 @@ export default {
     friendlyTime: function() {
       // Get the new friendly time whenever the store time updates
       let newTime = ta.ago(this.message.time)
-      if (newTime.includes('ms')) {
+      if (newTime.includes('ms') || newTime.includes('-')) {
         newTime = 'Just now'
       }
       // Tie to store time so this updates at interval
