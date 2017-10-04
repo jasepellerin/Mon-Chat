@@ -1,2 +1,2 @@
 # Mon-Chat
-Small chat web application
+Simple web chat application. Uses vuetify to create a modern, material layout.
