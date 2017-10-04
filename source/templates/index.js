@@ -7,7 +7,7 @@ module.exports = ({ title }) => {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${title}</title>
-    <link rel="shortcut icon" href="/static/favicon.ico?v=3">
+    <link rel="shortcut icon" href="/static/favicon.ico?v=4">
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <link rel="stylesheet" href="/static/css/main.min.css">
   </head>
