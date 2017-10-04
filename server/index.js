@@ -8,6 +8,7 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io').listen(server)
 
+// Set up socket
 io.on('connection', function (socket) {
   socket.on('Message', function (msg) {
     io.emit('Message', msg)

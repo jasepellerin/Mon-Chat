@@ -28,6 +28,7 @@ export default {
   },
   data: function() {
     return {
+      // Whether the currently logged-in user posted the message
       isCurrentUser: this.message.user === this.$store.state.username,
       containerClass: function() {
         // If current user posted a message, align end
