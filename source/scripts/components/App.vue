@@ -42,7 +42,7 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Mon Chat{{chatID ? ' - ' + chatID : ''}}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <img class="top-bar-icon" :src="icon" />
+      <img class="top-bar-icon" :src="icon" alt="cat" title="meow" />
     </v-toolbar>
     <!-- Main content section -->
     <main>
