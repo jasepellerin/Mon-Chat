@@ -19,7 +19,7 @@ if (userCookie && userCookie.length <= 20) {
 }
 // Only check for true, as default is false
 if (darkCookie === 'true') {
-  initialState.darkTheme = darkCookie
+  initialState.darkTheme = true
 }
 
 const store = new Vuex.Store({
