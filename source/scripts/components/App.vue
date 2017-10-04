@@ -57,7 +57,7 @@
 
 <script>
 import Cookies from 'js-cookie'
-import logOut from '../functions/logOut'
+import logOut from '../helperFunctions/logOut'
 
 export default {
   data: function() {
@@ -93,14 +93,14 @@ export default {
     }
   },
   computed: {
+    chatID: function() {
+      return this.$route.params.chatID
+    },
     // Set cookie when theme changes
     dark: function() {
       const darkTheme = this.$store.state.darkTheme
       Cookies.set('darkTheme', darkTheme, { expires: 7 })
       return this.$store.state.darkTheme
-    },
-    chatID: function() {
-      return this.$route.params.chatID
     },
     url: function() {
       return window.location.href

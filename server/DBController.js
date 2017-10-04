@@ -1,9 +1,9 @@
 const MongoClient = require('mongodb').MongoClient
 const mongoUri = require('./secrets.json').mongoUri
 
-// Helper for DB functions
+// Helper for DB helperFunctions
 class DBController {
-  /* Wrapper for all db functions which connects,
+  /* Wrapper for all db helperFunctions which connects,
    * runs the given dbFunction, and closes connection
    */
   connectAndPerformFunction(dbFunction) {

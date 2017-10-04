@@ -6,8 +6,8 @@
 
 
 <script>
-import testChatID from '../functions/testChatID'
-import makeRoom from '../functions/makeRoom'
+import testChatID from '../helperFunctions/testChatID'
+import makeRoom from '../helperFunctions/makeRoom'
 
 export default {
   data: function() {

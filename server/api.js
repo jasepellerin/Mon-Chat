@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const DBController = require('./DBController')
-const testChatID = require('../source/scripts/functions/testChatID')
+const testChatID = require('../source/scripts/helperFunctions/testChatID')
 
 // Constants
 const dbController = new DBController()
@@ -52,7 +52,7 @@ api.post('/chat/:chatID/messages', (req, res) => {
   checkChatID(chatID, callback, res)
 })
 
-// Used to get chat room messages
+// Used to get chat room information
 api.get('/chat/:chatID', (req, res) => {
   const chatID = req.params.chatID
   const callback = () => {

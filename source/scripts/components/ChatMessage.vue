@@ -28,16 +28,16 @@ export default {
   },
   data: function() {
     return {
-      isCurrent: this.message.user === this.$store.state.username,
+      isCurrentUser: this.message.user === this.$store.state.username,
       containerClass: function() {
         // If current user posted a message, align end
-        if (this.isCurrent) {
+        if (this.isCurrentUser) {
           return 'self-message'
         } else return 'other-message'
       },
       cardClass: function() {
         // Get appropriate card class
-        if (this.isCurrent) {
+        if (this.isCurrentUser) {
           return 'blue'
         } else return 'cyan'
       }

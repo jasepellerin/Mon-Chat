@@ -1,15 +1,15 @@
 <template>
   <v-layout column justify-space-between>
-    <chatContainer :messages="messages" />
+    <MessageContainer :messages="messages" />
     <v-input class="chatSend" @submit-message="onSubmit" :done="done" label="Send a message" icon="send" />
   </v-layout>
 </template>
 
 <script>
-// Helper functions
-import getMessages from '../functions/getMessages'
-import postMessage from '../functions/postMessage'
-import makeRoom from '../functions/makeRoom'
+// Helper helperFunctions
+import getMessages from '../helperFunctions/getMessages'
+import postMessage from '../helperFunctions/postMessage'
+import makeRoom from '../helperFunctions/makeRoom'
 
 // Socket
 const socket = require('socket.io-client')()

@@ -2,12 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import store from './store'
-import logOut from './functions/logOut'
+import logOut from './helperFunctions/logOut'
 
 // Import components
 const App = require('./components/App.vue')
 const ChatApp = require('./components/ChatApp.vue')
-const ChatContainer = require('./components/ChatContainer.vue')
+const MessageContainer = require('./components/MessageContainer.vue')
 const ChatMessage = require('./components/ChatMessage.vue')
 const ChatSelector = require('./components/ChatSelector.vue')
 const Login = require('./components/Login.vue')
@@ -15,7 +15,7 @@ const VInput = require('./components/VInput.vue')
 
 // Register components
 Vue.component('app', App)
-Vue.component('chatContainer', ChatContainer)
+Vue.component('messageContainer', MessageContainer)
 Vue.component('chatMessage', ChatMessage)
 Vue.component('chatSelector', ChatSelector)
 Vue.component('vInput', VInput)
