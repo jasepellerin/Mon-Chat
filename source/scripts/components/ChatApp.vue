@@ -1,6 +1,6 @@
 <template>
   <v-layout column justify-space-between>
-    <MessageContainer :messages="messages" />
+    <messageContainer :messages="messages" />
     <v-input class="chatSend" @submit-message="onSubmit" :done="done" label="Send a message" icon="send" />
   </v-layout>
 </template>
