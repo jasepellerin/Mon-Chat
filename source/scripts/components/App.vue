@@ -60,6 +60,12 @@
 <script>
 import Cookies from 'js-cookie'
 
+// Check if SVG is supported
+const supportsSvg = function() {
+  return document.implementation
+    .hasFeature('http://www.w3.org/TR/SVG11/feature#Image', '1.1')
+}
+
 export default {
   data: function() {
     return {
@@ -100,7 +106,10 @@ export default {
       return this.$route.params.chatID
     },
     icon: function() {
-      return this.dark ? 'static/images/cat-dark.png' : 'static/images/cat.png'
+      // Get proper extension
+      let ext = supportsSvg ? 'svg' : 'png'
+      return this.dark
+        ? 'static/images/cat-dark.' + ext : 'static/images/cat.' + ext
     },
     // Set cookie when theme changes
     dark: function() {

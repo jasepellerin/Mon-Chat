@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="74.84px"
+	 height="93px" viewBox="0 0 74.84 93" enable-background="new 0 0 74.84 93" xml:space="preserve">
+<g id="Layer_5">
+</g>
+<g id="Tail">
+	<g>
+		<g>
+			<path fill="#333333" d="M62.101,79.434c11.996-9.278,15.181-27.825,10.978-41.765c-0.929-3.079-5.755-1.766-4.822,1.329
+				c3.746,12.422,0.983,28.645-9.69,36.901C56.018,77.869,59.584,81.38,62.101,79.434L62.101,79.434z"/>
+		</g>
+	</g>
+</g>
+<g id="Body">
+	<polygon fill="#333333" points="71,93 52,23.5 57.5,0 42,12.5 18.5,15 1.5,8 12,38 0,93 	"/>
+</g>
+<g id="Nose">
+	<polygon fill="#F499C1" points="30.024,38.341 32.875,38 31.333,41.715 	"/>
+</g>
+<g id="Eyes">
+	<path fill="#81C998" d="M28,33.667c0,1.657-1.343,3-3,3l0,0c-1.657,0-3-1.343-3-3v-3.333c0-1.657,1.343-3,3-3l0,0
+		c1.657,0,3,1.343,3,3V33.667z"/>
+	<path fill="#81C998" d="M42.667,31.833c0,1.933-1.567,3.5-3.5,3.5l0,0c-1.933,0-3.5-1.567-3.5-3.5v-4c0-1.933,1.567-3.5,3.5-3.5
+		l0,0c1.933,0,3.5,1.567,3.5,3.5V31.833z"/>
+</g>
+</svg>
