@@ -52,7 +52,7 @@
     </main>
     <!-- Bottom bar -->
     <v-footer fixed>
-      <span>Jase Pellerin 2017</span>
+      <a href="https://github.com/jasepellerin/Mon-Chat" target="none">Jase Pellerin 2017</a>
     </v-footer>
   </v-app>
 </template>
