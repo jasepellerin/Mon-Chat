@@ -29,6 +29,13 @@ export default {
     }
   },
   methods: {
+    // Give message box focus
+    focusInput: function() {
+      const inputs = document.getElementsByTagName('input')
+      if (inputs.length === 0) {
+        document.getElementsByTagName('input')[0].focus()
+      }
+    },
     onSubmit: function(msg) {
       // Add message to array
       const message = {
@@ -39,6 +46,7 @@ export default {
       socket.emit('Message', message)
       postMessage(this.chatID, message)
     },
+    // Get messages for chat room, or create room if needed
     updateMessages: function() {
       // Get messages
       getMessages(this.chatID)
@@ -63,7 +71,9 @@ export default {
       this.messages.push(msg)
     })
   },
+  // Scroll to bottom of messages on update
   updated() {
+    this.focusInput()
     window.scrollTo(0, document.body.scrollHeight)
   }
 }
