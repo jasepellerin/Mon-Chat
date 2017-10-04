@@ -67,7 +67,8 @@ export default {
       // Nav drawer items
       listItems: [
         {
-          click: () => { this.share = !this.share },
+          // Close drawer to help mobile
+          click: () => { this.share = !this.share; this.drawer = false },
           icon: 'link',
           show: () => this.chatID !== undefined,
           title: 'Share chat link'
