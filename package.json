@@ -65,7 +65,7 @@
     "grunt-webpack": "^3.0.0",
     "mongodb": "^2.2.31",
     "pm2": "^2.7.1",
-    "socket.io": "^2.0.3",
+    "socket.io": "^2.5.0",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1"
